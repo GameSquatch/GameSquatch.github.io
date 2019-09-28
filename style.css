@@ -1,0 +1,435 @@
+:root {
+    --cardBorder: 5px solid #207cca;
+    --tabColor: green;
+    --headerColor: black;
+}
+
+html, body {
+    margin: 0;
+}
+html {
+    height: 100%;
+}
+body {
+    position: relative;
+    width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* *****************************
+*  SEARCH MODAL DESIGN *********
+*/
+#modalContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    display: none;
+    background: rgba(0, 0, 0, 0.75);
+    overflow-y: auto;
+}
+#searchModal {
+    position: relative;
+    display: grid;
+    width: calc(100% - 20px);
+    max-width: 650px;
+    margin: auto;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    grid-gap: 18px;
+    margin-top: 15px;
+    color: white;
+}
+#searchModal fieldset {
+    border: 3px solid #207cca;
+}
+#modalExit {
+    /* position: sticky;
+    top: 0; */
+    display: inline-block;
+    color: white;
+    font-size: 20pt;
+    padding: 8px;
+}
+#modalExit:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.5);
+}
+fieldset {
+    width: 100%;
+}
+legend {
+    font-size: 15pt;
+}
+.inputSpacer {
+    height: 20px;
+}
+.inputDescription {
+    margin: 5px 0 0 5px;
+}
+input {
+    width: 100%;
+    padding: 8px 5px;
+    background: #DDD;
+    border: 2px solid green;
+    border-radius: 15px;
+    outline: none;
+    transition: all 0.2s ease-out;
+}
+input:focus {
+    padding: 12px 8px;
+    border-radius: 20px;
+    border: 2px solid #207cca;
+}
+select {
+    width: 100%;
+    height: 30px;
+    background: #DDD;
+}
+button#search {
+    position: sticky;
+    bottom: 0px;
+    background: #DDD;
+    padding: 15px;
+}
+button#search:hover {
+    cursor: pointer;
+}
+.searchValidation, #locationErrorMessage, #magErrorMessage {
+    color: red;
+    font-size: 14pt;
+    display: none;
+}
+/*
+*  END SEARCH MODAL DESIGN *****
+********************************/
+
+/* *****************************
+*  DETAIL MODAL DESIGN *********
+*/
+#detailModalContainer {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.65);
+    padding: 10px 0;
+}
+#detailModal {
+    position: relative;
+    width: calc(100% - 20px);
+    max-width: 650px;
+    margin: auto;
+    margin-top: 45px;
+    border-radius: 25px;
+    background: white;
+    /* padding: 15px; */
+}
+#detailExit {
+    display: grid;
+    place-items: center;
+    position: relative;
+    float: right;
+    border-radius: 0 25px 0 0;
+    height: 100%;
+    width: 45px;
+}
+#detailExit:hover {
+    cursor: pointer;
+    background: green;
+}
+#detailHeader {
+    background: linear-gradient(to bottom right, green, #00b300);
+    color: white;
+    border-radius: 25px 25px 0 0;
+    height: 50px;
+}
+#detailHeaderText {
+    position: relative;
+    float: left;
+    display: grid;
+    place-items: center;
+    font-size: 18pt;
+    height: 100%;
+    padding:  0 18px;
+}
+#detailContent {
+    border-left: 3px solid #207cca;
+    border-bottom: 3px solid #207cca;
+    border-right: 3px solid #207cca;
+    border-radius: 0 0 25px 25px;
+}
+#detailContent div span:first-child {
+    display: inline-block;
+    width: 30%;
+}
+#detailContent div:nth-child(odd) {
+    background: rgb(246, 246, 246);
+}
+#detailContent div:last-child {
+    border-radius: 0 0 25px 25px;
+}
+#detailContent div {
+    padding: 18px;
+}
+/* *****************************
+*  END DETAIL MODAL DESIGN *****
+*/
+
+/* *****************************
+*  LOADER DESIGN ***************
+*/
+#loaderContainer {
+    width: 100%;
+    height: 100%;
+}
+#loader {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0 15px;
+    align-items: center;
+    padding: 15px;
+    width: 50%;
+    max-width: 600px;
+    margin: auto;
+    background: white;
+}
+.loadBox {
+    background: green;
+}
+#ldBx1 {
+    animation: bx1 2.5s ease 0s infinite;
+}
+#ldBx2 {
+    animation: bx2 2.5s ease 0s infinite;
+}
+#ldBx3 {
+    animation: bx3 2.5s ease 0s infinite;
+}
+
+@keyframes bx1 {
+    0% { transform: scale(1.0); }
+    10% { transform: scale(0.25); }
+    20% { transform: scale(0.25); }
+    30% { transform: scale(0.25); }
+    40% { transform: scale(0.25); }
+    50% { transform: scale(0.25); }
+    60% { transform: scale(1.0); }
+    70% { transform: scale(1.0); }
+    80% { transform: scale(1.0); }
+    90% { transform: scale(1.0); }
+    100% { transform: scale(1.0); }
+}
+@keyframes bx2 {
+    0% { transform: scale(1.0); }
+    10% { transform: scale(1.0); }
+    20% { transform: scale(0.25); }
+    30% { transform: scale(0.25); }
+    40% { transform: scale(0.25); }
+    50% { transform: scale(0.25); }
+    60% { transform: scale(0.25); }
+    70% { transform: scale(1.0); }
+    80% { transform: scale(1.0); }
+    90% { transform: scale(1.0); }
+    100% { transform: scale(1.0); }
+}
+@keyframes bx3 {
+    0% { transform: scale(1.0); }
+    10% { transform: scale(1.0); }
+    20% { transform: scale(1.0); }
+    30% { transform: scale(0.25); }
+    40% { transform: scale(0.25); }
+    50% { transform: scale(0.25); }
+    60% { transform: scale(0.25); }
+    70% { transform: scale(0.25); }
+    80% { transform: scale(1.0); }
+    90% { transform: scale(1.0); }
+    100% { transform: scale(1.0); }
+}
+/*
+*  END LOADER DESIGN ***********
+********************************/
+
+/* *****************************
+*  HEADER DESIGN ***************
+*/
+#headerBackground {
+    width: 100%;
+    background: linear-gradient(to bottom right, #1a1a1a, #666666);
+}
+#topHeader, #header, #tabs {
+    margin: 0;
+    color: white;
+    width: 100%;
+    display: grid;
+}
+#topHeader {
+    grid-template-columns: 45px 45px 45px 45px 1fr 45px;
+    grid-template-rows: 45px;
+    grid-gap: 0 10px;
+    padding: 10px;
+}
+#header {
+    font-size: 20pt;
+    padding: 10px 0 20px;
+    grid-template-columns: 1fr;
+}
+#tabs {
+    position: sticky;
+    top: 0;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 50px;
+    background: var(--tabColor);
+}
+
+.headerIcon {
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: white;
+    font-size: 20pt;
+    transition: all 0.5s ease;
+}
+.headerIcon:hover {
+    background: #444;
+    cursor: pointer;
+}
+a:link, a:visited, a:active {
+    text-decoration: none;
+    color: white;
+}
+
+#searchIcon {
+    display: grid;
+    place-items: center;
+    grid-column: 6 / 7;
+    color: white;
+    font-size: 20pt;
+}
+#searchIcon:hover {
+    background: #555;
+    cursor: pointer;
+}
+
+#title {
+    text-align: center;
+    grid-column: 1 / 2;
+}
+
+.headerTab {
+    place-items: center;
+    padding: 15px 0 0;
+    height: 100%;
+    text-align: center;
+}
+.headerTab:hover {
+    cursor: pointer;
+}
+.currentTab {
+    background: white;
+    width: calc(100% - 20px);
+    margin: auto;
+    border-radius: 10px 10px 0 0;
+    color: #000;
+}
+/*
+*  END HEADER DESIGN ***********
+********************************/
+
+
+/* *****************************
+*  CONTENT DESIGN **************
+*/
+#content {
+    margin-top: 20px;
+    display: grid;
+    width: 100%;
+/*     grid-template-columns: 1fr; */
+    grid-gap: 30px;
+    justify-items: center;
+    overflow: auto;
+}
+
+.cardContainer {
+    display: grid;
+    width: calc(100% - 20px);
+    max-width: 650px;
+    grid-template-columns: 15px 1fr 10px 90px 10px 1fr 15px;
+    grid-template-rows: 45px 45px 20px min-content 10px min-content 15px 20px 20px;
+    grid-template-areas:
+        ". . . mag . . ."
+        ". . . mag . . ."
+        ". . . . . . ."
+        ". where where where where where ."
+        ". . . . . . ."
+        ". when when when when when ."
+        ". . . . . . ."
+        ". . btn btn btn . ."
+        ". . btn btn btn . .";
+
+}
+
+.magnitude {
+    display: grid;
+    place-items: center;
+    font-size: 1.8em;
+    background: #FFF;
+    grid-area: mag;
+    border-radius: 50%;
+    border: var(--cardBorder);
+    box-shadow: 0 12px 5px -7px rgba(255, 255, 255, 1),
+        inset 0 12px 5px -7px rgba(255, 255, 255, 1),
+        0 10px 5px rgba(0, 0, 0, 0.3),
+        inset 0 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.bg {
+    grid-column: 1 / 8;
+    grid-row: 2 / 9;
+    border-radius: 15px;
+    border: var(--cardBorder);
+    box-shadow: 0 12px 5px -7px rgba(255, 255, 255, 1),
+        inset 0 12px 5px -7px rgba(255, 255, 255, 1),
+        0 10px 5px rgba(0, 0, 0, 0.3),
+        inset 0 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.where, .when {
+    display: grid;
+    place-items: center;
+    padding: 12px 10px 8px;
+    background: white;
+    font-size: 16pt;
+}
+.where {
+    grid-area: where;
+}
+.when {
+    grid-area: when;
+}
+
+.btn {
+    display: block;
+    grid-area: btn;
+    background: #207cca;
+    color: white;
+    outline: none;
+    font-size: 13pt;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.3);
+}
+.btn:hover {
+    background: #2590ec;
+    cursor: pointer;
+}
+/*
+*  END CONTENT DESIGN **********
+********************************/
