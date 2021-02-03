@@ -9,9 +9,13 @@
     <p>Authenticated Page</p>
 
     <script type="text/javascript">
-        const accessToken = URLSearchParams.get("access_token");
+        const params = new URLSearchParams(window.location.search.substring(1));
+        const accessToken = params.get("access_token");
         console.log(accessToken ? accessToken : "No access token present.");
         // make API call for user info
+        const accessTokenElem = document.createElement("p");
+        accessTokenElem.textContent = accessToken;
+        document.body.appendChild(accessTokenElem);
     </script>
 </body>
 </html>
