@@ -13,6 +13,11 @@ let unitsMetric = true;
 
 
 $(document).ready(function () {
+    const clientId = "22C7S4";
+    const redirectUri = "https%3A%2F%2Fgamesquatch.gitgub.io/authenticated/";
+    const scopes = "activity";
+    const oauthUrl = `https://www.fitbit.com/oauth2/authorize?response_type=token&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes}&expires_in=604800`;
+    window.location.replace(oauthUrl);
     events = [];
     // this object will contain the tab content. Instead of loading a whole new page, I am just going to create the html
     // needed for each tab. This is for a very specific reason. The website www.sololearn.com can't use multiple pages,
