@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 'Building A Virtual Tree In React'
-date: 2025-04-26 16:47:01 -0600
+title: 'DRAFT: Building A Virtual Tree In React'
+date: 2025-05-03 20:58:01 -0600
 categories: react virtual tree
 author: Ezekiel Williams
 ---
