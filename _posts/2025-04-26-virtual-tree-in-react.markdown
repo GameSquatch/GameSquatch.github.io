@@ -27,6 +27,8 @@ And that would be accurate! But how does it do that? You wouldn't really know un
 
 Let's start off by building the simple starting components:
 
+{% raw %}
+
 ```jsx
 const Row = memo(({ name }) => {
   return <div>{name}</div>;
@@ -811,6 +813,8 @@ function App() {
   return <VirtualTree treeData={treeData} rootNodeId="root" itemHeight={30} overscan={15} />;
 }
 ```
+
+{% endraw %}
 
 ## Conclusion
 
