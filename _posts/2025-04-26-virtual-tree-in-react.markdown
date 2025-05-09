@@ -23,6 +23,8 @@ At least in my circle of life and corner of the internet, virtualization seems t
 A high level description of virtualization in a browser application might go like this:
 "Basically, it only renders the items that are currently within the "viewport" of a scrollable area, and as the user scrolls, it dynamically renders items coming into view and destroys items going out of view." In React, this might be said slightly differently: the items currently in the viewport are mounted and as the user scrolls, react will mount items coming into view and unmount the ones going out of view. So how does that actually work though? Here is an example hook in React that would virtualize a list based on a viewport:
 
+{% raw %}
+
 ```js
 function useVirtualize({ getScrollableElem, itemCount, itemSize }) {
   const [scrollTop, setScrollTop] = useState(0);
