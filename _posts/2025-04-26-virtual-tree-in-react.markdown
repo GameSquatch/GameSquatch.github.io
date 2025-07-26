@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Building A Virtual Tree In React'
+title: 'Building A Virtualized Tree In React'
 date: 2025-05-08 20:38:00 -0600
 categories: react virtual tree
 author: Ezekiel Williams
@@ -352,3 +352,5 @@ While virtualization is a cool technique, you'll want to figure out if it's righ
 An alternative for tree components is to create a recursive row component, where each row is responsible for rendering its children. The downside is that you can't virtualize it, but if your use-case doesn't have thousands and thousands of rows on-screen at any one time, then you might not actually need virtualization. With recursive row components, only what is expanded will be on-screen and in the DOM, so it kind of acts as a natural virtualization technique where the idea of a viewport has changed to be what the user has expanded.
 
 This is only my first post to start getting into writing. Feel free to email me if you have strong opinions or suggestions!
+
+{% include test_script.html %}
