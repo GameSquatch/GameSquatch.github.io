@@ -46,6 +46,10 @@ function useVirtualize({ getScrollableElem, itemCount, itemSize }) {
     return result;
   }, [startIndex, endIndex, itemSize]);
 
+  const onScroll = useCallback((e) => {
+    setScrollTop(e.target.scrollTop);
+  }, []);
+
   useEffect(() => {
     const scrollable = getScrollableElem();
     if (scrollable) {
@@ -56,10 +60,6 @@ function useVirtualize({ getScrollableElem, itemCount, itemSize }) {
       scrollable?.removeEventListener('scroll', onScroll);
     };
   }, [getScrollableElem, onScroll]);
-
-  const onScroll = useCallback((e) => {
-    setScrollTop(e.target.scrollTop);
-  }, []);
 
   useLayoutEffect(() => {
     const scrollable = getScrollableElem();
@@ -280,6 +280,7 @@ const App = () => {
         {virtualList.virtualizedItems.map((virtualItem) => (
           <div
             style={{
+              height: '30px',
               position: 'absolute',
               width: '100%',
               transform: `translateY(${virtualItem.start}px)`,
@@ -353,4 +354,6 @@ An alternative for tree components is to create a recursive row component, where
 
 This is only my first post to start getting into writing. Feel free to email me if you have strong opinions or suggestions!
 
-{% include test_script.html %}
+Here's a working demo to play around with!
+
+{% include demo.html %}
